@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- This is The Tree Data Page -->
+    <title>Hong Kong
+	</title>
+</head>
+<body>
+    <h1>Carbon Sequestering in Hong Kong </h1>
+
+     <iframe width="100%" height="600" src="https://ee-tylerjervis.projects.earthengine.app/view/gspihk" frameborder="0" allowfullscreen></iframe>
+<br><br>
+With the strong rise in climate action, we have seen a large precedent placed on carbon sequestering. The bulk of carbon sequestering efforts has been in reforestation. While the practicality of reforestation is up for debate, it is the practice that many nations are engaged in. So if these nations with to sequester carbon efficiently, they need to know where to grow forests and where to conserve old growths. This map is a visual representation of two factors, GPP and ACD. GPP is a measure of photosynthesis. The logic follows that if more photosynthesis occurs, then more growth happens. And ACD is Aboveground Carbon Density. This metric shows you where dense forests already exist and where potential reforestation efforts should be directed. By adjusting the sliders in the map, you can see the ACD and GPP of Hong Kong. Using this data, I could make recommendations on where to create conservation areas and where to preserve the existing forests for carbon sequestering.
+<br><br>
+I created this map of Google Earth Engine (GEE). It involved importing a shapefile of the region I wanted to pick, in this case, Hong Kong, and importing the appropriate satellite imagery. The last part was just the GPP data for the global map. After running some code, I was left with that final product.
+<br><br>
+For the recommendations, you want to pick an area with high GPP and low ACD for new growths. This essentially looks for where there is high photosynthesis and low amounts of existing forests. Then if trees would be planted there, they would grow well and sequester a larger amount of carbon. This would save resources and help nations and companies reach their carbon net zero goals more efficiently. 
+<br><br>
+The other aspect is where should forests be conserved. If there is a medium to high GPP and a high ACD, there exists a large carbon sequestering environment there. These areas should be conserved form new developments as they would release more carbon then areas without old growth forests. These regions on the map are shown where there is light green for GPP and yellow to red for the ACD. As Hong Kong is largely monoclimatic, the GPP dosent differ much. But because of the city’s topography, the existing nature changes depending on elevation. So I found that mountainsides had low ACDs. this is to be expected, but my metric dose not include topography. If I were to remake this map, I would try to incorporate some aspect of topography as that effects where trees can be planted.
+<br><br>
+
+    <!-- Directory back to home and my work -->
+    <a href="index.html">Back to My Work</a>
+    <br>
+    <a href="intropage.html">Back Home</a>
+
+<br><br><br><br>
+</body>
+</html>

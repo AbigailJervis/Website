@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This is The Assignment 1 Page -->
+    <title>Choropleth</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Esri Map</title>
+</head>
+<body>
+    <h1>Choropleth SDG Mapping</h1> 
+    
+   <iframe width="100%" height="600" src="https://uni-utrecht.maps.arcgis.com/apps/Compare/index.html?appid=a9f9df6176b64f598833e2789c29b003" frameborder="0" allowfullscreen></iframe>
+  <br><br>
+A longtime hobby of mine is looking at random maps for my curiosity. I’d usually wind up looking at these Mercator projection maps of the world with countries shaded in different colours to indicate differences. Unbeknownst to me at the time, these maps are called choropleth maps. Knowing what I just said, it may be an absolute surprise that I jumped on the opportunity to learn how to make maps, including choropleth maps. 
+<br><br>
+
+So, the next question on my mind was first what am I going to map and how. I decided to map two of the United Nations’ Sustainable Development Goals (SDGs). This is because the UN has good databases for creation choropleth maps. The two SDGs that I chose were: SDG 15.1.1, Percent of forested land to land area and SDG13.1.2, Implementation of Naturial Desaster Risk Reduction (NDRR) in Line With The Sendai Framework. I chose these two as I thought there might be an interesting correlation between heavily deforested nations and having to imploment more NDRR.
+<br><br>
+
+Now, To make these maps, I used QGIS. QGIS is a free mapping software that lets you create maps and interact with its data. The first thing I needed to do was import the shapefile for the Maps. The shapefile is like a keyhole for your data. To use the shapefile, I needed to import the dataset and join it to the map. This involves some data sorting and classifying.
+<br><br>
+
+The next step I took was adjusting the boundaries of colors and changing the colors themselves. Certain colors can convey some things, like a choropleth going from white to dark red can indicate that increasing values are bad, whereas green indicates improvement. I had considered these facts when choosing the colorpalet for the two choropleths. I went for green for the SDG 15.1.1 as it made sense to me that darker green represented more trees. I chose blue for SDG 13.1.2 because the indicator is neither a good thing or a bad thing. I say that because nations like The Netherlands reports zero for their data and Russia Reports the highest degree of implementation. This comes down to what the Sendai Framework actually represents. It isnt measuring the investments into NDRR, it measures how much its developments accord to the Sendai Framework. So for Russia’s case, its war time security measurements fall in line with the Sendai Framework. Whereas the Dutch flood prevention maintanace dosent fall in line with the Sendai Framework.
+<br><br>
+
+After choosing the colour, I printed the maps with a legend and title. The legend and title provides the final product with a more professional appearance. During this, I exported the joint layers to ESRI Online and created the comparison map in the website. Some issues that I had solved was bug fixing in QGIS, and joining layers in QGIS. These all had relatively simple fixes so I wont get into them.
+<br><br>
+
+Overall, I really enjoyed my first foray into GIS. The process, while tedious at times, is so increadibly satasfying in the end. I could see myself working with this field in the future. 
+<br><br><br>
+
+
+  <!-- Directory back to home and my work -->
+    <a href="index.html">Back to My Work</a>
+    <br>
+    <a href="intropage.html">Back Home</a>
+<br><br><br><br>
+</body>
+</html>

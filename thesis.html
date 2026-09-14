@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold-Water Coral Reef Biomass Calculation of the Logachev Mound Province</title>
+    <link rel="stylesheet" href="thesis.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="index.html">← Back to Home</a>
+        <h1>Thesis Project</h1>
+    </div>
+
+    <div class="container">
+        <!-- Title block -->
+        <div class="thesis-header">
+            <h1>Cold-Water Coral Reef Biomass Calculation of the Logachev Mound Province</h1>
+            <p class="subtitle">A Study on the Stored Biomass in a Cold-Water Coral Ecosystem</p>
+            <p class="meta">Abigail J. Jervis · 2026 · University College Utrecht</p>
+        </div>
+
+       
+
+
+
+ <!-- Abstract -->
+        <div class="thesis-section">
+            <h2>Abstract</h2>
+            <p>
+                Cold-water coral (CWC) reefs represent significant deep-sea carbon
+                reservoirs, yet province-scale storage volumes remain poorly quantified.
+                This study develops two bathymetry-based models to estimate the total
+                carbonate volume and sequestered carbon of the Logachev Mound Province
+                (LMP) on the southern margin of Rockall Bank.
+            </p>
+            <p>
+                The Linear Approximation Model (LAM) reconstructs the basal seafloor by
+                interpolating across generated coral gaps in a 25 m resolution multibeam
+                bathymetric grid, yielding a total mound volume of 10,387,020,800 m³.
+                Carbon mass estimates derived from three drill cores, partitioned into
+                Holocene and pre-Holocene components, produce an average of 2.64 Gt C
+                stored across the province.
+            </p>
+            <p>
+                The Sigmoid Approximation Model (SAM), developed to isolate
+                positive-relief coral volume from geometric error, returned an
+                unreliable volume of 17 m³ but confirmed a strong sigmoidal fit to the
+                Rockall margin bathymetry with a mean R² of 0.9943. These results provide
+                the first province-scale carbon storage estimate for the LMP, offering a
+                computationally efficient, reproducible baseline for stochastic carbon
+                flux modeling within the LMP and for other CWCs.
+            </p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="thesis-section">
+         <h2>Introduction</h2>
+             <figure class="image full-width">
+             <img src="images/thesis photos/Screen Shot 2026-06-07 at 5.05.52 PM.png" alt="Logachev Mound Province">
+             <figcaption>Figure 1: Area of study for the LMP, depicting the depth profile.</figcaption>
+          </figure>
+                  <p>
+                        Cold-water corals are a vital ecosystem in the deep sea. The reefs
+                        form biodiverse oases in an otherwise sparsely populated region of
+                        the oceans, supporting rich assemblages of fish and invertebrates.
+                        Despite an increased interest by the scientific community, CWCs
+                        remain understudied and largely unknown to the public. As CWC
+                        ecosystems are degrading globally, more studies should be
+                        conducted for the preservation of data before these archives are
+                        lost.
+                    </p>
+                    <p>
+                        Quantifying their role in carbon storage carries particular urgency.
+                        Determining the volume of a geological reservoir is a requirement
+                        for evaluating how effectively it buffers stochastic fluxes of
+                        carbon through time, because storage capacity directly controls the
+                        system's ability to absorb shocks without losing accumulated
+                        material. For climate models, this provides better constraints on
+                        the deep-sea carbon cycle. For conservation, it helps determine
+                        what is worth preserving and provides incentive for increased
+                        research while reefs remain intact.
+                    </p>
+                    <p>
+                        Carbon reservoir size is largely undetermined for CWC reefs. This
+                        limits stochastic flow models that seek to predict how carbon moves
+                        through the deep ocean. Studies on CWC carbonate budgets have
+                        advanced considerably, with mass accumulation rates calculated for
+                        individual mounds and full carbonate budgets constructed for
+                        specific sites. Yet total province-scale storage volumes remain
+                        poorly constrained.
+                    </p>
+                    <p>
+                        The challenge lies in moving from local accumulation rates to
+                        whole-reef volumes. Approaches have historically looked at surface
+                        area carbon storage, but volume estimation is challenging due to
+                        the ambiguity present in seismic profiles of the region. A purely
+                        morphological alternative was demonstrated by de Haas et al., who
+                        modelled an approximated seafloor surface beneath the reef from
+                        multibeam bathymetry by interpolating the surrounding ambient
+                        seabed beneath individual mound clusters. This bypassed the seismic
+                        problem entirely, though it captured only the positive relief
+                        volume and not any buried mound root. To date, no methodology has
+                        been tested to estimate the total carbon storage of the entire LMP
+                        at province scale.
+                    </p>
+                    <p>
+                        This study seeks to generate a model capable of bypassing the
+                        seismic ambiguity by generating a basal surface in order to produce
+                        a volume value, and by using drill core data, quantify the
+                        sequestered carbon the LMP contains.
+                    </p>
+        </div>
+
+      
+
+
+        <!-- Study Area -->
+        <div class="thesis-section">
+            <h2>Study Area</h2>
+            <p>
+                The Logachev Mound Province is situated on the southern margin of Rockall
+                Bank, at the southwestern edge of the Rockall Trough in the northeast
+                Atlantic. The LMP occupies the upper continental slope at depths between
+                approximately 500 and 1,200 m, where approximately 500 individual mounds
+                have been mapped. The structural composition of the mounds reflects their
+                biological origin: sediment samples show that the mounds consist
+                primarily of pale-coloured carbonate muds, mainly aragonite, with live
+                and dead cold-water corals at the seafloor and buried dead coral
+                frameworks beneath.
+            </p>
+            <p>
+                This vertical stratigraphy, with living reef at the surface transitioning
+                to compacted dead framework and carbonate sediment buried within the reef,
+                is central to the carbon quantification approach developed in this study.
+                Surface surveys of the LMP indicate that approximately 45% of the mound
+                surface is covered by dead coral framework, 3% by live coral framework,
+                and the remaining 51% by fine sediments.
+            </p>
+            <p>
+                Mound growth at the LMP has been continuous for approximately the last
+                11,000 years. Prior to this Holocene growth phase, several hiatuses and
+                nonconformities exist within the mound record, with the most recent
+                unconformity correlating across multiple mound provinces at the Irish
+                margin, providing an end-Pleistocene marker. Since carbonate composition
+                and sedimentation rates differ between the pre-Holocene and Holocene
+                layers in the LMP, the carbon calculations must account for this.
+            </p>
+        </div>
+
+        <!-- Why This Matters -->
+        <div class="thesis-section">
+            <h2>Why This Matters</h2>
+            <p>
+                The deep sea remains poorly represented in global carbon cycle models.
+                Deep-sea processes are largely absent from most carbon cycle models and
+                rarely considered in climate discussions, and Earth System Models rely on
+                highly simplified representations of marine ecology. Province-scale carbon
+                stores such as the LMP are therefore not fully accounted for in global
+                models. Providing a quantified volume for the LMP contributes to
+                constraining deep-sea carbon stocks that global models currently have not
+                integrated.
+            </p>
+            <p>
+                Cold-water coral mounds warrant specific attention as carbon reservoirs
+                because they accumulate significantly more carbon than the surrounding
+                ambient seafloor. Previous work found that during mound formation phases,
+                CWC mounds accumulate between 15 and 19 times more carbon than the
+                adjacent seafloor. This justifies treating the mound province as a
+                discrete reservoir rather than averaging carbon storage across the
+                broader seabed.
+            </p>
+            <p>
+                Generating a reproducible volume for the LMP also provides a metric that
+                can inform marine spatial planning and conservation prioritisation. In a
+                rapidly changing ocean, knowing how much carbon a given reef province
+                stores helps determine what is worth protecting. While this study does not
+                prescribe specific policy, the result offers an evidence base that
+                managers and policymakers can use when evaluating the climate-regulation
+                services provided by cold-water coral ecosystems.
+            </p>
+        </div>
+
+        <!-- Methodology -->
+        <div class="thesis-section">
+            <h2>Methodology</h2>
+            <div class="content-with-image reverse">
+                <figure class="image">
+                    <img src="images/thesis photos/Screen Shot 2026-09-13 at 5.09.16 PM.png" alt="Linear approximation method">
+                    <figcaption>Figure 2: Depiction of linear approximation for a vertical slice.</figcaption>
+                </figure>
+                <div class="text">
+                    <p>
+                        Seafloor bathymetry was retrieved through the Irish Government's
+                        public database for geospatial data. The dataset is the 25 m
+                        resolution product of Irish coastal waters, the highest resolution
+                        dataset available for the Logachev coral reef. Drill core data for
+                        M2001-28, M2001-43 and M2003-23 were sourced from van der Land et
+                        al., selected because the carbonate contents split between Holocene
+                        and pre-Holocene are presented clearly in that publication.
+                    </p>
+                    <p>
+                        ArcGIS Pro was used to develop the models. The polygon tool was
+                        used to manually outline the area of the CWCs present within the
+                        LMP. The inverse selection generated the bathymetry raster with the
+                        coral area removed, for use as the ambient seafloor input to the
+                        model. For the coral polygon, the reef area was intentionally drawn
+                        slightly larger than the coral reef itself, biasing the model
+                        toward overprediction.
+                    </p>
+                    <p>
+                        A Python script was written as a tool in ArcGIS Pro. The script
+                        searches for pixels within the bounds of the raster that border
+                        no-value pixels and linearly interpolates across the gaps in the
+                        dataset. This generated both horizontal and vertical interpolation
+                        lines, and the depth value for each pixel was taken as the average
+                        of these two lines, producing a continuous basal surface for the
+                        LMP. Volume was calculated by subtracting the depth of the basal
+                        surface from the depth of the reef surface at each pixel. Each
+                        pixel represents a 25 m × 25 m area, and these were summed to give
+                        the total volume.
+                    </p>
+                    <p>
+                        A carbon mass calculator was constructed, taking as input the molar
+                        mass fraction of carbon in calcium carbonate, the density of
+                        aragonite and the density of calcite. The calculator fits each core
+                        to the entire volume separately and reports the extrapolation for
+                        each core.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="thesis-section">
+            <h2>Results</h2>
+            <p>
+                The linear approximation model successfully generated the basal surface.
+                The LAM calculated a total volume of 10,387,020,800 m³ for the LMP. The
+                LAM was designed to be computationally cheap and ran in under 1 minute on
+                a computer with an Intel Core i5 CPU with integrated graphics as the
+                primary processing unit.
+            </p>
+            <figure class="image full-width">
+                <img src="images/lam-output.png" alt="LAM basal surface output">
+                <figcaption>Figure 3: Output of the LAM basal surface. Crosshatched lines indicate the location of the reef.</figcaption>
+            </figure>
+            <p>
+                The carbon sequestration calculation provided a range of 1.84–3.49 Gt C
+                from core M2001-28, 2.32–3.39 Gt C from core M2001-43 and 1.29–3.53 Gt C
+                from core M2003-23, with an average of 2.64 Gt C across all three cores.
+            </p>
+            <figure class="image full-width">
+                <img src="images/carbon-by-core.png" alt="Carbon sequestration by drill core">
+                <figcaption>Figure 4: Carbon sequestration estimates by drill core. Bars show the mean; error bars show the min–max range.</figcaption>
+            </figure>
+            <p>
+                To contextualize these figures, the global anthropogenic carbon emission
+                for 2025 was 11.6 ± 0.9 Gt C. According to the LAM results, the LMP stores
+                approximately 22.8% of the 2025 anthropogenic carbon emission.
+            </p>
+            <p>
+                The SAM calculated a volume of 17 m³, with a mean R² of 0.9943. To
+                appreciate how small this prediction is: over the entire ~70 km-long reef
+                province, each pixel is 25 m × 25 m. For the SAM to yield 17 m³, the
+                average relief per pixel across the entire reef would need to be ~3 cm.
+            </p>
+        </div>
+
+        <!-- Discussion -->
+        <div class="thesis-section">
+            <h2>Discussion</h2>
+            <p>
+                The LAM provides a linear province-scale volume by stitching the generated
+                coral gap line by line to construct the basal surface of the ambient
+                seafloor. The finding that a province-scale linear approximation is
+                feasible reinforces the central research question: a bathymetry-based
+                model can bypass seismic ambiguity and generate a cheap and reproducible
+                carbonate storage estimate.
+            </p>
+            <p>
+                However, the results also confirm that a linear interpolation over a
+                curved margin will systematically incorporate the ambient seafloor into
+                the mound volume. Since the LMP contains buried coral mounds, the amount
+                of incorporated ambient seabed is unknown. The SAM was therefore designed
+                to generate a volume for the positive relief of the corals, assuming the
+                LMP lies atop a curved, convex-upward seafloor. While it did not return a
+                usable volume, it confirmed the sigmoidal profile of the margin and
+                identified why the LAM overpredicts.
+            </p>
+            <p>
+                Four major modeling limitations were identified. First, the models
+                consistently overpredict volume, both because the 25 m resolution smooths
+                small changes in reef surface and because the linear assumption captures
+                ambient seafloor. Second, selecting the boundary of the coral reef proved
+                challenging due to data resolution. Third, a byproduct of the linear
+                approximation is the smoothing of buried topographic features beneath the
+                reefs. Fourth, the cumulative error in the model is unknown, as the LAM
+                has no independent dataset against which to validate its output.
+            </p>
+            <p>
+                On the calculation side, drill core data from a single mound were
+                generalized to the entire LMP, the growth hiatus was taken as the
+                pre-Holocene / Holocene boundary, the existence of buried coral reefs was
+                not accounted for, and drill cores preferentially sample the Holocene cap
+                rather than the reef body as a whole. Future studies can improve the
+                calculations by incorporating CWC growth patterns and reef accretion
+                geometries into the equations.
+            </p>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="thesis-section">
+            <h2>Conclusion</h2>
+            <p>
+                This study set out to quantify the volume and stored carbon within the
+                Logachev Mound Province. Two models were constructed. The LAM successfully
+                produced a volume of 10,387,020,800 m³. The SAM, while unsuccessful,
+                demonstrated through an overall R² of 0.9943 that the Rockall margin
+                follows a sigmoidal clinoform profile. The estimate of 2.64 Gt C
+                represents the first province-scale carbon storage figure for the LMP,
+                filling a gap that existing carbonate budget studies at the mound or
+                single-site scale have not addressed.
+            </p>
+            <p>
+                The linear assumption introduces a geometric error that currently remains
+                unconstrained due to the lack of independent datasets with which to
+                validate the LAM. Future work should prioritise minimum curvature
+                interpolation as an improvement on the sigmoidal approach and apply the
+                LAM to other CWC reefs. Integrating the three drill cores as an averaged
+                dataset rather than treating them individually would also strengthen the
+                carbon mass estimates.
+            </p>
+            <p>
+                As cold-water coral ecosystems face increasing anthropogenic pressure,
+                quantifying their role as carbon reservoirs becomes critical for both
+                climate modeling and conservation policy. By developing more models for
+                province-wide carbon storage, we can better understand the role CWCs play
+                in the global carbon system and seek to preserve these unique ecosystems.
+            </p>
+        </div>
+
+        <!-- Full Document -->
+        <div class="thesis-section">
+            <h2>Full Document</h2>
+            <p>
+                <a href="files/thesis.pdf" class="doc-link" download>📄 Download the full thesis (PDF)</a>
+            </p>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h3>About This Project</h3>
+            <p>
+                <!-- Your text here -->
+            </p>
+        </div>
+    </div>
+</body>
+</html>

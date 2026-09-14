@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- This is The Tree Data Page -->
+    <title>Texel Dunes</title>
+    <meta charset="UTF-8">
+    <title>Image Carousel</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
+    <style>
+        /* Your CSS styles */
+        .carousel {
+            position: relative; /* Ensure arrows are positioned relative to carousel */
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto; /* Center carousel */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease; /* Smooth slide transition */
+            position: relative; /* Ensure items are positioned relative to carousel */
+        }
+
+        .carousel-item {
+            flex: 0 0 100%; /* Force items to be full width of carousel */
+            text-align: center; /* Center align items */
+            position: relative; /* Ensure captions are positioned relative to items */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .carousel-item img {
+            max-width: 100%; /* Ensure images don't exceed container */
+            display: block; /* Remove default inline styling */
+            border-radius: 8px; /* Optional: Add rounded corners */
+            position: relative; /* Ensure counter can be positioned relative to image */
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%; /* Ensure caption spans full width of image */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-bottom-left-radius: 8px; /* Optional: Rounded corners for caption */
+            border-bottom-right-radius: 8px;
+            z-index: 10; /* Ensure captions are above the image counter */
+        }
+
+        .carousel-counter {
+            position: absolute; /* Position relative to carousel-item */
+            top: 50%; /* Center vertically */
+            left: 0;
+            right: 0;
+            margin: auto; /* Center horizontally */
+            width: fit-content; /* Adjust width as needed */
+            text-align: center; /* Center align text */
+            color: white;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 5px 10px; /* Adjust padding */
+            border-radius: 5px; /* Optional: Rounded corners */
+            opacity: 0; /* Initially hide the counter */
+            transition: opacity 0.3s ease-out; /* Smooth fading transition */
+            z-index: 20; /* Ensure counter is above the image */
+        }
+
+        .carousel-item:hover .carousel-counter {
+            opacity: 1; /* Show counter on hover */
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 20; /* Ensure arrows are above everything */
+        }
+
+        .carousel-control.prev {
+            left: 10px;
+        }
+
+        .carousel-control.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Processed LiDAR Data of Texel's Sand Dunes</h1>
+<div class="carousel">
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+            <img src="images/texel/texel1.png" 
+            alt="Photo 1">
+            <div class="carousel-caption">Sand Dunes of Texel</div>
+            <div class="carousel-counter">1 / 3</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <img src="images/texel/texel2.png" alt="Photo 2">
+            <div class="carousel-caption">Data During Raster Calculation</div>
+            <div class="carousel-counter">2 / 3</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <img src="images/texel/texel3.jpg" alt="Photo 3">
+            <div class="carousel-caption">Refrence From Dan Coe Carto</div>
+            <div class="carousel-counter">3 / 3</div>
+        </div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+
+</div>
+
+<script>
+  // JavaScript for simple image carousel navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const totalSlides = slides.length;
+const counter = document.querySelector('.carousel-counter');
+
+function showSlide(index) {
+    if (index < 0) {
+        currentSlide = totalSlides - 1; // Loop to last slide
+    } else if (index >= totalSlides) {
+        currentSlide = 0; // Loop to first slide
+    }
+    const offset = -currentSlide * 100;
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+
+    // Update counter
+    counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+    // Show counter and initiate fade out after 1.5 seconds
+    counter.style.opacity = 1;
+    clearTimeout(counter.fadeTimeout); // Clear any existing timeout
+    counter.fadeTimeout = setTimeout(() => {
+        counter.style.opacity = 0;
+    }, 1500);
+}
+
+function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+}
+
+// Initial display of the first slide
+showSlide(currentSlide);
+</script>
+
+<br><br> <!-- this is a digital elavation model not a REM-->
+The Texel project was probably the most frustrating yet most satisfying map. Its idea was to take a 3D ground elevation map and run a TIN interpolation over a decreasing area. If you had limited the data correctly, it should look similar to the map in the third image. That map is from Dan Coe Carto. I followed the images outlined on his <a href=”https://dancoecarto.com/creating-rems-in-qgis-the-idw-method”>website</a> for this project. 
+
+<br><br>
+I decided to take my data for the Dutch island of Texel. Dan’s method is for rivers. He recommends only doing this on wild rivers as a managed river won't have the beautiful bends on the map. This is the first issue I ran into. Texels has one river and a floodplain but in the data, this isn't apparent. The second issue is that the river isn't natural. It was made when the dykes were built to reclaim some land in the northeast of the island.
+<br><br>
+So after spending quite some time trying to get the river to work, I changed my goal to the dunes. The whole western half of the island is made up of sand dunes. I wanted to see if the shifting sand dunes would appear the same way the rivers do. And so, my day of trials began.
+
+<br><br>
+The problem really starts when the raster calculation is performed. The raster calculation takes every pixel and runs it through an equation that you create. I subtracted the TIN file from the image height. This should exaggerate the features of the carving rivers on the map. The only issue was that it ran for every pixel. In my data, 1 pixel was equivalent to ½ a meter. This means that for the 586 square kilometre island, the raster calculation would need to run an extremely large amount of calculations. The second image in the slide is the process after 4 hours. That was when left the computer running and went home. Come the morning, I checked on the data and it had been processed. It looked a little strange as not much had changed. In retrospect, I would have needed to flip the raster calculation from subtracting to adding to see any change, as the sand dunes are additive whereas a river removes land making it subtractive. The first image you see on the slide is not the REM image. This is because when I went to export the image, it crashed the computer and deleted the file. I later learnt that it was because the file was 18 gigabytes.
+
+<br><br>
+The map that you see is more of an exaggerated relief map of the sand dunes on Texel. But still, some very interesting features emerged. My favourite one is the old dykes. I was browsing old maps of Texel and saw the island was a lot smaller this was because the All Saint Flood destroyed much of the area and created the island of Texel and an island at the top of Texel today. So the Dutch, ever determined to steal land back from the sea, started building dykes on the island. And the fun part is that they are still visible today on my map. If you look at the mostly dark part of the island, there are faint purple lines that bisect the island. When looking at old maps, these lines perfectly follow the progress of land reclamation on Texel. 
+
+<br><br>
+This was probably the map I'm most proud of, even though it didn't turn out how I wanted it, I find that the visual presentation is just stunning. It was also relieving to know that this was done in QGIS as I could try this again with a smaller dataset in hopes of making the sand dune REM work out in the end.
+
+
+<br><br>
+
+    <!-- Directory back to home and my work -->
+    <a href="index.html">Back to My Work</a>
+    <br>
+    <a href="intropage.html">Back Home</a>
+
+<br><br><br><br>
+</body>
+</html>

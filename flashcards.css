@@ -1,0 +1,525 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+.nav-bar {
+    background: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-bar a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-bar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Upload Section */
+.upload-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.upload-section input[type="file"] {
+    display: none;
+}
+
+.upload-section button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.upload-section button:hover {
+    background: #45a049;
+}
+
+/* Quick Create */
+.quick-create {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quick-create input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.quick-create textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.quick-create button {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Deck List */
+.deck-list {
+    display: grid;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.deck-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.deck-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.deck-card h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.deck-stats {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.deck-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.deck-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.study-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.export-btn {
+    background: #FF9800;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+/* Study Screen */
+.back-btn {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.progress {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Flashcard */
+.flashcard {
+    background: white;
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.flashcard:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.word-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.translation-display {
+    font-size: 28px;
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+.click-hint {
+    font-size: 14px;
+    color: #999;
+    margin-top: 20px;
+}
+
+/* Rating Buttons */
+.rating-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.rating-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.rating-btn:hover {
+    transform: scale(1.05);
+}
+
+.rating-btn span {
+    font-size: 24px;
+}
+
+.easy {
+    background: #4CAF50;
+    color: white;
+}
+
+.medium {
+    background: #FFC107;
+    color: #333;
+}
+
+.hard {
+    background: #FF9800;
+    color: white;
+}
+
+.fail {
+    background: #f44336;
+    color: white;
+}
+
+/* Keyboard Hints */
+.keyboard-hints {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Instructions */
+.instructions {
+    background: #FFF3E0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.instructions h3 {
+    margin-top: 0;
+    color: #E65100;
+}
+
+.instructions ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+/* Upload button styling */
+.upload-btn {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.upload-btn:hover {
+    background: #45a049;
+}
+
+/* Create deck button */
+.create-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Flashcard wrapper for edit button positioning */
+.flashcard-wrapper {
+    position: relative;
+    margin: 20px 0;
+}
+
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.edit-btn:hover {
+    background: #f5f5f5;
+    border-color: #999;
+}
+
+/* Edit card view */
+.edit-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height: 200px;
+}
+
+.edit-card label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.edit-card label:first-child {
+    margin-top: 0;
+}
+
+.edit-card input {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.edit-card input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.save-btn {
+    flex: 1;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.save-btn:hover {
+    background: #45a049;
+}
+
+.cancel-btn {
+    flex: 1;
+    background: #9E9E9E;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    background: #757575;
+}
+
+/* About Section */
+.about-section {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.about-section h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.about-section p {
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Add Words Section */
+.add-words-section {
+    background: #FFF3E0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 2px solid #FF9800;
+}
+
+.add-words-section h3 {
+    margin-top: 0;
+    color: #E65100;
+}
+
+.add-words-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    min-height: 100px;
+}
+
+.add-words-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.add-words-btn {
+    background: #FF9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-words-btn:hover {
+    background: #F57C00;
+}
+
+.cancel-add-btn {
+    background: #9E9E9E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-add-btn:hover {
+    background: #757575;
+}
+
+/* Add Words button in deck card */
+.add-words-btn-small {
+    background: #FF9800;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-words-btn-small:hover {
+    background: #F57C00;
+}
+
+/* Deck list section */
+.deck-list {
+    margin-top: 20px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+/* Upload Status */
+#uploadStatus {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #4CAF50;
+}

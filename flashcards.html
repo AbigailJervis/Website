@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Vocabulary Study</title>
+    <link rel="stylesheet" href="flashcards.css">
+</head>
+<body>
+    <!-- Navigation back to your main site -->
+    <div class="nav-bar">
+        <a href="index.html">← Back to Home</a>
+        <h1>Flashcards</h1>
+    </div>
+
+    <!-- Deck Selection Screen -->
+    <div id="deckScreen" class="container">
+        <h2>Your Flashcard Decks</h2>
+        
+        <!-- Deck List - This is where uploaded decks appear -->
+        <h3>Available Decks:</h3>
+        <div id="deckList" class="deck-list">
+            <!-- Decks will appear here automatically after upload -->
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h3>Upload New Deck(s)</h3>
+            <p>Upload CSV files with columns: word, translation</p>
+            
+            <!-- Single file input with label styled as button -->
+            <label for="csvUpload" class="upload-btn">Choose CSV Files</label>
+            <input type="file" id="csvUpload" accept=".csv" multiple style="display: none;">
+            
+            <div id="uploadStatus"></div>
+        </div>
+        
+        <!-- Quick Create Deck -->
+        <div class="quick-create">
+            <h3>Or Create a Deck Manually</h3>
+            <input type="text" id="newDeckName" placeholder="Deck name (e.g., Spanish)">
+            <textarea id="newDeckWords" placeholder="word,translation&#10;hola,hello&#10;gato,cat&#10;perro,dog" rows="5"></textarea>
+            <button onclick="createDeck()" type="button" class="create-btn">Create Deck</button>
+        </div>
+        
+        
+        <!-- Add Words to Existing Deck Section -->
+        <div id="addWordsSection" class="add-words-section" style="display: none;">
+            <h3>Add Words to Deck: <span id="addWordsDeckName"></span></h3>
+            <textarea id="addWordsText" placeholder="word,translation&#10;nuevo,new&#10;viejo,old&#10;bonito,beautiful" rows="5"></textarea>
+            <div class="add-words-buttons">
+                <button onclick="addWordsToDeck()" class="add-words-btn">Add Words</button>
+                <button onclick="cancelAddWords()" class="cancel-add-btn">Cancel</button>
+            </div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>How to Create a CSV File:</h3>
+            <ol>
+                <li>Open Google Sheets or Excel</li>
+                <li>Create two columns: "word" and "translation"</li>
+                <li>Fill in your vocabulary</li>
+                <li>Save as CSV (File → Download → CSV)</li>
+                <li>Upload the CSV file above</li>
+                <li>Click "Study" on your deck to start learning!</li>
+            </ol>
+        </div>
+        
+        <!-- About Section -->
+        <div class="about-section">
+            <h3>About This Project</h3>
+            <p>
+                I have created this section of my website because I thought the subscription to many flashcard comanies was too expensive. I didn't want another monthly subscription for something that I believed could be made in a matter of hours. So I set off to create this software to study my dutch vocab for free. Unlike the rest of my website, this section was created with the help of AI (Deepseek). This was a test for me to see what the AI agent could help me with. A current project I have is reducing subscriptions to tech bills. So, I have been trying to see if I can create software for my own usage that dosn't require a subscription or accounts and whatnot. I am excited to slowly build a catelog of programmes on my cite that I (and anyone who wishes) can use for free. 
+            </p>
+        </div>
+        
+    </div>
+
+    <!-- Study Screen -->
+    <div id="studyScreen" class="container" style="display: none;">
+        <button onclick="backToDecks()" class="back-btn">← Back to Decks</button>
+        <h2 id="currentDeckName"></h2>
+        <div id="progress" class="progress">0/30 mastered</div>
+        
+        <!-- Flashcard -->
+        <div class="flashcard-wrapper">
+             <button class="edit-btn" onclick="toggleEdit(event)" title="Edit this card">✏️ Edit</button>
+    
+         <!-- Normal view -->
+         <div id="flashcard" class="flashcard" onclick="revealCard()">
+             <div class="card-content">
+                <div id="word" class="word-display">Click to start</div>
+              <div id="translation" class="translation-display" style="display: none;"></div>
+             <div id="clickHint" class="click-hint">Click card to reveal translation</div>
+             </div>
+          </div>
+    
+    <!-- Edit view (hidden by default) -->
+    <div id="editCard" class="edit-card" style="display: none;">
+        <label>Word:</label>
+        <input type="text" id="editWord" />
+        <label>Translation:</label>
+        <input type="text" id="editTranslation" />
+        <div class="edit-actions">
+            <button class="save-btn" onclick="saveEdit()">Save</button>
+            <button class="cancel-btn" onclick="cancelEdit()">Cancel</button>
+        </div>
+    </div>
+</div>
+        
+        <!-- Rating Buttons -->
+        <div id="buttons" class="rating-buttons" style="display: none;">
+            <button class="rating-btn easy" onclick="rateWord(1)">Easy<br><span>1</span></button>
+            <button class="rating-btn medium" onclick="rateWord(2)">Medium<br><span>2</span></button>
+            <button class="rating-btn hard" onclick="rateWord(3)">Hard<br><span>3</span></button>
+            <button class="rating-btn fail" onclick="rateWord(4)">Fail<br><span>4</span></button>
+        </div>
+        
+        <div class="keyboard-hints">
+            <p>Keyboard shortcuts: <strong>Space</strong> = reveal, <strong>1-4</strong> = rate</p>
+        </div>
+    </div>
+
+    <script src="flashcards.js"></script>
+</body>
+</html>
